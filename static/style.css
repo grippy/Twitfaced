@@ -1,0 +1,44 @@
+body { -x-system-font:none; color:#333333; font-family:'Lucida Grande',sans-serif; font-size:16px; font-size-adjust:none; font-stretch:normal; font-style:normal; font-variant:normal; font-weight:normal; line-height:normal; text-align: left;}
+a {color: black; text-decoration: underline;}
+table { align: left;}
+h1 {font-size: 50px; margin:0; padding:0;}
+p.services {vertical-align: middle;font-size: 72px;font-weight: bold;}
+p.services .plus{margin-top: -20px;}
+
+.services img {height: 80px;}
+#hdr {background:#333; color:#fff; padding:5px;}
+#login {margin:5px 0;}
+    #login a {float:left; margin:0 3px 0; font-size:.70em;}
+    
+#status {width:990px; height:75px; padding:5px; font-size:.90em;}    
+#status_count {float:left; font-weight:bold; font-size:125%;}
+#nav {vertical-align: middle; float: right;}
+#mypic {width: 20px;}
+
+#input h3 {margin:0;}
+.tweet {margin:10px 0 10px 0; border-bottom:1px solid #eee; padding:0 10px 10px 0; }
+.tweet .picture {float:left;}
+.tweet .img { margin:0; height:48px; width: 48px;}
+.tweet .user a {text-decoration:none; font-weight:bold; margin-right:5px;}
+.tweet .body {margin-left: 60px;}
+h2 {align: center;}
+div.subtext {font-size: .80em; color: #555; margin:5px 0 0 0;}
+div.subtext a {color: #555;}
+.time_lapse {font-weight:bold;}
+.source {}
+.clear {clear:both;}
+.divider{border-right:30px solid #eee;}
+
+
+.post {border-bottom: 1px solid #eee; min-height: 50px; padding:0 10px 10px 10px; margin:10px 0 10px 0;}
+.post .picture { float: left;}
+.post .picture img { height:48px; width: 48px;}
+.post .body {margin-left: 60px;}
+.post .media img {border: 1px solid #ccc; padding: 3px;}
+.post .media:hover img {border: 1px solid #3b5998;}
+.post a.actor {text-decoration:none; font-weight: bold;}
+.post .meta {font-size: .80em;}
+.post a.permalink {color: #777777;}
+
+.post .comments {margin:5px 0 0 0;}
+.post .comment {font-size:.70em; padding:5px; background:#ECEFF5; border-bottom:1px solid #fff;}

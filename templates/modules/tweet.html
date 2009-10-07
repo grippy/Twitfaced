@@ -1,0 +1,23 @@
+{% if not user %}
+{ user = tweet['user'] }
+{% end %}
+
+<div class="tweet" id="tweet-{{tweet['id']}}">
+	<div class="picture">
+		<a href="http://twitter.com/{{user['screen_name']}}"><img src="{{ user['profile_image_url'] }}" class="img" /></a>
+	</div>
+	<div class="body">
+		<div class="controls" style="float:right; width:20px">
+			<a href="#reply" title="reply"><img src="http://s.twimg.com/a/1254429647/images/icon_reply.gif" border="0" alt="reply" /></a>
+			<a href="#retweet" title="retweet"><img src="http://ww.drsfostersmith.com/images/tab-icon-bird-gray.gif" border="0" alt="retweet" width="16" height="16"/></a>
+		</div>
+		<div class="text">
+			<span class="user">@<a href="http://twitter.com/{{user['screen_name']}}">{{ escape(user['screen_name']) }}</a></span> {{ escape(tweet["text"]) }}
+		</div>
+		<div class="subtext">
+			<span class="time_lapse" title="{{tweet["created_at"]}}"></span>&nbsp;from&nbsp;<span class="source">{{ tweet["source"] }}</span>
+			<!--{{tweet["created_at"]}}-->
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>

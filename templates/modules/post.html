@@ -1,0 +1,42 @@
+<div class="post" title="{{ post["created_time"] }}">
+  <div class="picture">
+    <a href="{{ actor["url"] }}"><img src="{{ actor["pic_square"] }}"/></a>
+  </div>
+  <div class="body">
+    <a href="{{ actor["url"] }}" class="actor">{{ escape(actor["name"]) }}</a>
+    {% if post["message"] %}
+      <span class="message">{{ escape(post["message"]) }}</span>
+    {% end %}
+    {% if post.get("attachment", None) %}
+      <div class="attachment">
+        {% if post["attachment"].get("name") %}
+          <div class="name"><a href="{{ post["attachment"]["href"] }}">{{ escape(post["attachment"]["name"]) }}</a></div>
+        {% end %}
+        {% if post["attachment"].get("description") %}
+          <div class="description">{{ post["attachment"]["description"] }}</div>
+        {% end %}
+        {% for media in filter(lambda m: m.get("src") and m["type"] in ("photo", "link"), post["attachment"]["media"]) %}
+          <span class="media">
+            <a href="{{ media["href"] }}"><img src="{{ media["src"] }}" alt="{{ escape(media.get("alt", "")) }}"/></a>
+          </span>
+        {% end %}
+      </div>
+    {% end %}
+    <div class="meta">
+	{% if post.get('permalink',None) %}
+      <a href="{{ post["permalink"] }}" class="permalink">{{ locale.format_date(post["created_time"]) }}</a>
+	{% else %}
+		<a href="{{ actor["url"] }}">{{ locale.format_date(post["created_time"]) }}</a>
+	{% end %}
+    </div>
+	{% if post.get('comments', None) and post['comments']['count'] > 0 %}
+	<div class="comments">
+		<div class="comment"><strong>{{ post['comments']['count'] }} comments</strong></div>
+		{% for comment in post['comments']['comment_list'] %}
+			<div class="comment">{{ escape(comment['text']) }}</div>
+		{% end %}
+	</div>
+	{% end %}
+
+  </div>
+</div>
