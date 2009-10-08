@@ -105,7 +105,7 @@ class TweetMixin(object):
         if not timeout or timeout.deadline < time.time() and not self._finished:
             timeout = tornado.ioloop.IOLoop.instance().add_timeout(time.time() + POLL_INTERVAL, self.poll_twitter)
         self.polls[user['id']] = timeout
-        print self.polls
+        # print self.polls
         args = dict(path = "/statuses/friends_timeline",
                              access_token=user["access_token"],
                              since_id = since_id,
@@ -116,16 +116,14 @@ class TweetMixin(object):
     def poll_twitter_cb(self, tweets):
         if tweets:
             user = self.get_current_twitter_user()
-            print str(user['id']) + " | retrieved " + str(len(tweets))
+            # print str(user['id']) + " | retrieved " + str(len(tweets))
             cls = TweetMixin
             text = ""
             for tweet in tweets:
                 # print tweet['id']
                 text += self.render_string("modules/tweet.html", tweet=tweet, user=tweet['user'])
             cls.since_ids[user['id']] = int(tweets[0]['id'])
-            
             self.finish(chunk=text) # needs to come before we kill the poller            
-
             timeout = self.polls[user['id']]
             if timeout and self._finished and timeout in tornado.ioloop.IOLoop.instance()._timeouts:
                 tornado.ioloop.IOLoop.instance().remove_timeout(timeout)
@@ -156,7 +154,7 @@ class FacebookMixin(object):
 
         if cls.since_ids.get(user['uid'], None):
             args['start_time'] = cls.since_ids[user['uid']]
-            print 'start_time: %d' % (args['start_time'])
+            # print 'start_time: %d' % (args['start_time'])
         self.facebook_request(**args)
     
     def write_stream(self, stream):

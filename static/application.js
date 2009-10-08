@@ -246,7 +246,6 @@ TF.twitter = {
     last_status_cb:function(response){
         $('#last_tweet').html(response)
         $("#last_tweet").linkify();
-        time.ago();
     },    
     status: function(status) {
     	var args = {"_xsrf": getCookie("_xsrf"), "status": status};

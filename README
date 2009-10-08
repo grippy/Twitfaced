@@ -1,0 +1,64 @@
+DESCRIPTION
+
+- Twitfaced is a real-time Twitter/Facebook Client built with the Tornado Framework. It will also post status updates to both.
+
+ABOUT
+
+I took TwitTornado (http://github.com/godavemon/TwitTornado) (minus the instant updating for friends who're logged in) and merged it with the Facebook Demo. 
+
+The application polls both twitter and facebook 1x a minutes for new tweets/posts. 
+
+You can adjust this to a higher frequency if your twitter api allows for more then 100 requests per hour.
+
+Feel free to wax it, flip it, and rub it down. Please share any modification/additions/subtractions you make.
+
+REQUIREMENTS:
+
+- You'll need to have the requirements for Tornado (http://tornadoweb.org) installed.  There is no need to install tornado. I included it here because I needed to modify tornado.auth to also serialize your user pic url once logged into facebook. 
+
+- You also need to have Twitfaced source. Clone it from github here http://github.com/grippy/Twitfaced
+
+   git clone git://github.com/grippy/Twitfaced.git
+
+CONFIGURATION:
+
+- You will need to obtain twitter oauth keys for your app from  http://twitter.com/oauth and app key/secret from facebook (http://www.facebook.com/home.php#/developers/)
+
+- Edit the twitter_consumer_key/twitter_consumer_secret and facebook_api_key/facebook_api_secret variables in twitfaced.py with your app's values
+
+- You may also want to configure the port variable (default = 80)
+
+- Comment out the Application.settings['debug'] value if reloading webapp between file changes isn't critical.
+
+- In order for the twitter oauth and facebook authentications to work, you'll need to run this app under the same domain you set your keys up with. To run it on my local machine, I just created the apps with example.com and then pointed example.com to my localhost. The default app settings contain keys for example.com. Be advised: the twitter api limit is 100 per hour so you might want to create your own.
+
+RUNNING:
+
+  $ git clone http://github.com/grippy/Twitfaced
+  $ cd TwitTornado
+  $ python twittornado.py
+
+TWITTER URLS
+
+http://twitter.com/oauth
+http://apiwiki.twitter.com/Twitter-API-Documentation
+http://apiwiki.twitter.com/Twitter-REST-API-Method%3A-statuses-friends_timeline
+
+FACEBOOK URLS
+
+http://www.facebook.com/home.php#/developers/
+http://wiki.developers.facebook.com/index.php/API
+http://wiki.developers.facebook.com/index.php/Stream.get
+http://wiki.developers.facebook.com/index.php/Status.set
+
+CAVEATS
+
+- The error handling isn't graceful at all. 
+- There are a few instances where the polling mechanisms never return if the rest calls error out.
+- If it bombs out or hangs then just reload the page.
+- The page widths blown out from time-to-time and the auto linking isn't superbly awesome.
+
+CREDITS
+
+Thanks to Dave Fowler for sharing TwitTornado and providing some of the copy for this README :)
+
