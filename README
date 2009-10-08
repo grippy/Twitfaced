@@ -6,7 +6,7 @@ ABOUT
 
 I took TwitTornado (http://github.com/godavemon/TwitTornado) (minus the instant updating for friends who're logged in) and merged it with the Facebook Demo. 
 
-The application polls both twitter and facebook 1x a minutes for new tweets/posts. 
+The application polls both twitter and facebook 1x a minute for new tweets/posts. 
 
 You can adjust this to a higher frequency if your twitter api allows for more then 100 requests per hour.
 
@@ -58,7 +58,7 @@ There are a few instances where the polling mechanisms never return if the rest 
 
 If it bombs out or hangs then just reload the page.
 
-The page widths blown out from time-to-time and the auto linking isn't superbly awesome.
+The page widths may be blown out from time-to-time and the auto linking isn't superbly awesome.
 
 CREDITS
 
