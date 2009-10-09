@@ -242,7 +242,7 @@ class TwitterPreviousHandler(BaseHandler, TweetMixin, tornado.auth.TwitterMixin)
         if user and tweets:
             text = ""
             for tweet in tweets:
-                print tweet['id']
+                # print tweet['id']
                 text += self.render_string("modules/tweet.html", tweet=tweet, user=tweet['user'])        
             self.finish(text)
 

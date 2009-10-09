@@ -34,8 +34,8 @@ In order for the twitter oauth and facebook authentications to work, you'll need
 RUNNING:
 
   $ git clone http://github.com/grippy/Twitfaced
-  $ cd TwitTornado
-  $ python twittornado.py
+  $ cd Twitfaced
+  $ sudo python twitfaced.py
 
 TWITTER URLS
 
